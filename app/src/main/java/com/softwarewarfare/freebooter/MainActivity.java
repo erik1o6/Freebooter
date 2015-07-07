@@ -2,6 +2,7 @@ package com.softwarewarfare.freebooter;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,8 +51,17 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        Button btListe = (Button) findViewById(R.id.FinderButton);
+        btListe.setOnClickListener(new View.OnClickListener()
+        {    public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, GoogleMaps.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
+    /** Called when the user clicks the Send button */
 
 
     @Override
