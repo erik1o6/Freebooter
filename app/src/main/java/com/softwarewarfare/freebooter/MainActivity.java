@@ -3,6 +3,7 @@ package com.softwarewarfare.freebooter;
 import java.util.Locale;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -21,28 +22,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.gms.maps.MapFragment;
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
+public class MainActivity extends FragmentActivity {
     SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -52,17 +41,16 @@ public class MainActivity extends AppCompatActivity {
         //mViewPager = (ViewPager) findViewById(R.id.pager);
        // mViewPager.setAdapter(mSectionsPagerAdapter);
         Button btListe = (Button) findViewById(R.id.FinderButton);
-        btListe.setOnClickListener(new View.OnClickListener()
-        {    public void onClick(View v)
-            {
+        btListe.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+
                 Intent intent = new Intent(MainActivity.this, GoogleMaps.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
-    /** Called when the user clicks the Send button */
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

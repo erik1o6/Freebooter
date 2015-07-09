@@ -1,29 +1,30 @@
 package com.softwarewarfare.freebooter;
 
-import android.support.v7.app.AppCompatActivity;
+/* https://developers.google.com/maps/documentation/android/map#add_map_code
+ */
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
+public class GoogleMaps extends FragmentActivity {
 
-public class GoogleMaps extends AppCompatActivity {
+    /** Local ariables **/
+    GoogleMap googleMap;
 
-        /** Local ariables **/
-        GoogleMap googleMap;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_google_maps);
-            createMapView();
-            addMarker();
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_google_maps);
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -86,7 +87,4 @@ public class GoogleMaps extends AppCompatActivity {
             );
         }
     }
-
-
-
 }
