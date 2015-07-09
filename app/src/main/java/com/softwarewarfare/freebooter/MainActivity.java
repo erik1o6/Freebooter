@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager = (ViewPager) findViewById(R.id.pager);
+       // mViewPager.setAdapter(mSectionsPagerAdapter);
         Button btListe = (Button) findViewById(R.id.FinderButton);
         btListe.setOnClickListener(new View.OnClickListener()
         {    public void onClick(View v)
